@@ -27,7 +27,7 @@
                     <label class="fancy-checkbox">
                         <span>Categories</span>
                     </label>
-                    <select class="form-control" name="id_theloai">
+                    <select class="form-control" name="id_theloai" id="id_theloai">
                         @foreach ($theloai as $item)
                             <option value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
@@ -36,7 +36,7 @@
                     <label class="fancy-checkbox">
                         <span>Type of new</span>
                     </label>
-                    <select class="form-control" name="id_loaitin">
+                    <select class="form-control" name="id_loaitin" id="id_loaitin">
                         @foreach ($loaitin as $item)
                             <option value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
@@ -76,5 +76,16 @@
 @endsection
 
 @section('script')
-
+    <script>
+        $(document).ready(function(){
+            $('#id_theloai').change(function(){
+                var id_theloai = $(this).val();
+                var url = "{{url('/admin/ajax/loaitin/')}}";
+                $.get(url+'/'+id_theloai,function($data){
+                    // alert($data);
+                    $('#id_loaitin').html($data);
+                });
+            });
+        });
+    </script>
 @endsection
