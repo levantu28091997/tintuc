@@ -41,24 +41,33 @@ Route::group(['prefix' => 'admin'], function () {
 
     // THE LOAI
     Route::group(['prefix' => 'theloai'], function () {
-        Route::get('list', [TheloaiController::class,'getList']);
+        Route::get('list', [TheloaiController::class,'getList'])->name('theloaiList');
         Route::get('add', [TheloaiController::class,'getAdd'])->name('theloaigetAdd');
         Route::post('add', [TheloaiController::class,'postAdd'])->name('theloaipostAdd');
-        Route::get('edit', [TheloaiController::class,'getEdit']);
+        Route::get('edit/{id}', [TheloaiController::class,'getEdit'])->name('theloaigetEdit');
+        Route::post('edit/{id}', [TheloaiController::class,'postEdit'])->name('theloaipostEdit');
+        Route::get('del/{id}', [TheloaiController::class,'getDel']);
     });
 
     // LOAI TIN
     Route::group(['prefix' => 'loaitin'], function () {
-        Route::get('list', [LoaiTinController::class,'getList']);
-        Route::get('add', [LoaiTinController::class,'getAdd']);
-        Route::get('edit', [LoaiTinController::class,'getEdit']);
+        Route::get('list', [LoaiTinController::class,'getList'])->name('loaitinList');
+        Route::get('add', [LoaiTinController::class,'getAdd'])->name('loaitingetAdd');
+        Route::post('add', [LoaiTinController::class,'postAdd'])->name('loaitinpostAdd');
+        Route::get('edit/{id}', [LoaiTinController::class,'getEdit'])->name('loaitingetEdit');
+        Route::post('edit/{id}', [LoaiTinController::class,'postEdit'])->name('loaitinpostEdit');
+        Route::get('del/{id}', [LoaiTinController::class,'getDel']);
     });
 
     // TIN TUC
     Route::group(['prefix' => 'tintuc'], function () {
         Route::get('list', [TinTucController::class,'getList']);
-        Route::get('add', [TinTucController::class,'getAdd']);
-        Route::get('edit', [TinTucController::class,'getEdit']);
+        Route::get('list', [TinTucController::class,'getList'])->name('tintucList');
+        Route::get('add', [TinTucController::class,'getAdd'])->name('tintucgetAdd');
+        Route::post('add', [TinTucController::class,'postAdd'])->name('tintucpostAdd');
+        Route::get('edit/{id}', [TinTucController::class,'getEdit'])->name('tintucgetEdit');
+        Route::post('edit/{id}', [TinTucController::class,'postEdit'])->name('tintucpostEdit');
+        Route::get('del/{id}', [TinTucController::class,'getDel']);
     });
 
     // SLIDE

@@ -30,7 +30,7 @@
                     </label>
                     <input type="text" name="name" class="form-control" placeholder="Enter your name">
                     <br>
-                    <input type="submit" value="Submit" class="btn btn-primary">
+                    <input type="submit" value="Add" class="btn btn-primary">
                 </div>
             </form>
         </div>

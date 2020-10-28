@@ -4,6 +4,9 @@
         <nav>
             <ul class="nav">
                 <li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="{{route('theloaiList')}}" class=""><i class="lnr lnr-list"></i> <span>Categories</span></a></li>
+                <li><a href="{{route('loaitinList')}}" class=""><i class="lnr lnr-menu"></i> <span>Type Of News</span></a></li>
+                <li><a href="{{route('tintucList')}}" class=""><i class="lnr lnr-file-empty"></i> <span>News</span></a></li>
                 <li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
                 <li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
                 <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
