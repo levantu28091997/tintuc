@@ -4,10 +4,10 @@
     <div class="col-md-12">
         <div class="panel">
             <div class="panel-heading">
-                <h3 class="panel-title">Add Type Of News</h3>
+                <h3 class="panel-title">Add News</h3>
             </div>
             
-            <form action="{{route('tintucpostAdd')}}" method="POST">
+            <form action="{{route('tintucpostAdd')}}" method="POST" enctype="multipart/form-data">
                 <div class="panel-body">
                     @if (count($errors) > 0)
                         @foreach ($errors->all() as $error)
@@ -21,6 +21,12 @@
                         <div class="alert alert-success alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                             <i class="fa fa-check-circle"></i> {{session('notifi')}}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <i class="fa fa-check-circle"></i> {{session('error')}}
                         </div>
                     @endif
                     @csrf
@@ -55,7 +61,8 @@
                     <label class="fancy-checkbox">
                         <span>Content</span>
                     </label>
-                    <textarea class="form-control" placeholder="Enter content" rows="10" name="content"></textarea>
+                    <textarea class="form-control ckeditor" id="content-ckeditor" name="content" rows="10"></textarea>
+                    {{-- <textarea class="form-control" placeholder="Enter content" rows="10" name="content"></textarea> --}}
                     <br>
                     <label class="fancy-checkbox">
                         <span>Image</span>

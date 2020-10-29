@@ -39,13 +39,13 @@
                                 <td>{{$item->description}}</td>
                                 <td>
                                     @if ($item->image)
-                                        <img src="{{asset('upload/tintuc/')}}{{$item->image}}" alt="" style="width: 100px; object-fit: cover;">
+                                        <img src="{{asset('upload/tintuc')}}/{{$item->image}}" alt="" style="width: 100px; object-fit: cover;">
                                     @else
                                         <img src="{{asset('upload/tintuc/image.png')}}" alt="" style="width: 100px; object-fit: cover;">
                                     @endif
                                     
                                 </td>
-                                <td>@if ($item->features == 1)<span class="lnr lnr-star"></span>@endif</td>
+                                <td class="text-danger" style="text-align: center">@if ($item->features == 1)<span class="lnr lnr-star"></span>@endif</td>
                                 <td>{{$item->views}} <span class="lnr lnr-eye"></span></td>
                                 <td>{{$item->loaitin->name ?? '-- unset--'}}</td>
                                 <td>{{$item->loaitin->theloai->name ?? '-- unset--'}}</td>

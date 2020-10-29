@@ -26,6 +26,7 @@
 	</div>
 	<!-- END WRAPPER -->
 	@include('admin.layout.script')
+	<script src="{{asset('admin_asset/ckeditor/ckeditor.js')}}"></script>
 	@yield('script')
 </body>
 
