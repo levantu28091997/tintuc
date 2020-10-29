@@ -7,6 +7,7 @@ use App\Http\Controllers\LoaiTinController;
 use App\Http\Controllers\TinTucController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AjaxController;
 
 /*
@@ -83,6 +84,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('list', [UserController::class,'getList']);
         Route::get('add', [UserController::class,'getAdd']);
         Route::get('edit', [UserController::class,'getEdit']);
+    });
+
+    // COMMENT
+    Route::group(['prefix' => 'comment'], function () {
+        Route::get('list/{id}', [CommentController::class,'getList'])->name('commentList');
     });
 
     // AJAX

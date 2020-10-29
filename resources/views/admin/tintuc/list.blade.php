@@ -28,6 +28,7 @@
                                 <th>Views</th>
                                 <th>Categories</th>
                                 <th>Type of New</th>
+                                <th>Comment</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -49,6 +50,9 @@
                                 <td>{{$item->views}} <span class="lnr lnr-eye"></span></td>
                                 <td>{{$item->loaitin->name ?? '-- unset--'}}</td>
                                 <td>{{$item->loaitin->theloai->name ?? '-- unset--'}}</td>
+                                <td style="text-align: center">
+                                    <a href="{{route('commentList', $item->id)}}">{{count($item->comment)}} comment</a>
+                                </td>
                                 <td style="width: 20%">
                                     <a href="edit/{{$item->id}}" class="btn btn-primary"><i class="lnr lnr-pencil"></i></a>
                                     <a href="del/{{$item->id}}" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="lnr lnr-trash"></i></a>
