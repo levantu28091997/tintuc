@@ -15,4 +15,9 @@ class CommentController extends Controller
         $comment = Comment::where('id_tintuc', $id)->get();
         return view('admin/comment/list',['comment'=>$comment]);
     }
+    public function getDel($id){
+        $comment = Comment::find($id);
+        $comment->delete();
+        return redirect()->route('commentList', $id)->with('notifi','Delete New successful');
+    }
 }

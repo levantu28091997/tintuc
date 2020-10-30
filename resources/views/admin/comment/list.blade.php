@@ -28,10 +28,9 @@
                         <tbody>
                             @foreach ($comment as $key => $item)
                             <tr>
-                                <td>{{++$key}}</td>
+                                <td style="width: 5%">{{++$key}}</td>
                                 <td>{{$item->content ?? '--unset--'}}</td>
-                                <td style="width: 20%">
-                                    <a href="edit/{{$item->id}}" class="btn btn-primary"><i class="lnr lnr-pencil"></i></a>
+                                <td style="width: 10%">
                                     <a href="del/{{$item->id}}" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="lnr lnr-trash"></i></a>
                                 </td>
                             </tr>

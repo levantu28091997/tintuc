@@ -63,7 +63,6 @@ Route::group(['prefix' => 'admin'], function () {
 
     // TIN TUC
     Route::group(['prefix' => 'tintuc'], function () {
-        Route::get('list', [TinTucController::class,'getList']);
         Route::get('list', [TinTucController::class,'getList'])->name('tintucList');
         Route::get('add', [TinTucController::class,'getAdd'])->name('tintucgetAdd');
         Route::post('add', [TinTucController::class,'postAdd'])->name('tintucpostAdd');
@@ -74,21 +73,28 @@ Route::group(['prefix' => 'admin'], function () {
 
     // SLIDE
     Route::group(['prefix' => 'slide'], function () {
-        Route::get('list', [SlideController::class,'getList']);
-        Route::get('add', [SlideController::class,'getAdd']);
-        Route::get('edit', [SlideController::class,'getEdit']);
+        Route::get('list', [SlideController::class,'getList'])->name('slideList');
+        Route::get('add', [SlideController::class,'getAdd'])->name('slidegetAdd');
+        Route::post('add', [SlideController::class,'postAdd'])->name('slidepostAdd');
+        Route::get('edit/{id}', [SlideController::class,'getEdit'])->name('slidegetEdit');
+        Route::post('edit/{id}', [SlideController::class,'postEdit'])->name('slidepostEdit');
+        Route::get('del/{id}', [SlideController::class,'getDel']);
     });
 
     // USER
     Route::group(['prefix' => 'user'], function () {
-        Route::get('list', [UserController::class,'getList']);
-        Route::get('add', [UserController::class,'getAdd']);
-        Route::get('edit', [UserController::class,'getEdit']);
+        Route::get('list', [UserController::class,'getList'])->name('userList');
+        Route::get('add', [UserController::class,'getAdd'])->name('usergetAdd');
+        Route::post('add', [UserController::class,'postAdd'])->name('userpostAdd');
+        Route::get('edit/{id}', [UserController::class,'getEdit'])->name('usergetEdit');
+        Route::post('edit/{id}', [UserController::class,'postEdit'])->name('userpostEdit');
+        Route::get('del/{id}', [UserController::class,'getDel']);
     });
 
     // COMMENT
     Route::group(['prefix' => 'comment'], function () {
         Route::get('list/{id}', [CommentController::class,'getList'])->name('commentList');
+        Route::get('list/del/{id}', [CommentController::class,'getDel'])->name('commentDel');
     });
 
     // AJAX
