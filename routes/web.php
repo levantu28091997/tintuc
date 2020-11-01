@@ -36,9 +36,11 @@ Route::get('/admin/index', function () {
     return view('admin/index');
 });
 
+// LOGIN
+Route::get('admin/login', [UserController::class,'getLogin'])->name('getLogin');
+Route::post('admin/login', [UserController::class,'postLogin'])->name('postLogin');
 
 // Admin
-
 Route::group(['prefix' => 'admin'], function () {
 
     // THE LOAI

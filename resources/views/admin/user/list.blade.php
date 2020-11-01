@@ -33,7 +33,14 @@
                                 <td style="width: 5%">{{++$key}}</td>
                                 <td>{{$item->name ?? '--unset--'}}</td>
                                 <td>{{$item->email ?? '--unset--'}}</td>
-                                <td>{{$item->level ?? '--unset--'}}</td>
+                                <td>
+                                    @if ($item->level == 0)
+                                        {{'Admin'}}
+                                    @elseif ($item->level == 1)
+                                        {{'Manager'}}
+                                    @else
+                                        {{'User'}}
+                                    @endif
                                 <td style="width: 15%">
                                     <a href="edit/{{$item->id}}" class="btn btn-primary"><i class="lnr lnr-pencil"></i></a>
                                     <a href="del/{{$item->id}}" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="lnr lnr-trash"></i></a>

@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <div class="panel">
             <div class="panel-heading">
-                <h3 class="panel-title">Add Slide</h3>
+                <h3 class="panel-title">Add User</h3>
             </div>
             
             <form action="{{route('userpostAdd')}}" method="POST" enctype="multipart/form-data">
