@@ -12,14 +12,4 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __construct(){
-        $this->Login();
-    }
-    public function Login(){
-        dd(Auth::check());
-        if(Auth::check()){
-            dd('Anhtu');
-            view()->share('user_login', Auth::user());
-        }
-    }
 }

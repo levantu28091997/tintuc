@@ -10,6 +10,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AjaxController;
 
+use App\Http\Controllers\PageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +22,10 @@ use App\Http\Controllers\AjaxController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//=======================================================
+//========================= PUBLIC ======================
+//=======================================================
+Route::get('/', [PageController::class,'hompage']);
 
 Route::get('/thu', function () {
     $theloai = TheLoai::find(3);
@@ -36,12 +38,19 @@ Route::get('/admin/index', function () {
     return view('admin/index');
 });
 
+
+
+//=======================================================
+//========================= ADMIN =======================
+//=======================================================
+
 // LOGIN
 Route::get('admin/login', [UserController::class,'getLogin'])->name('getLogin');
 Route::post('admin/login', [UserController::class,'postLogin'])->name('postLogin');
+Route::get('admin/logout', [UserController::class,'getLogout'])->name('getLogout');
 
 // Admin
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware'=>'adminLogin'], function () {
 
     // THE LOAI
     Route::group(['prefix' => 'theloai'], function () {

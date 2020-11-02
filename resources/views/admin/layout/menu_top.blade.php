@@ -38,14 +38,12 @@
                         <li><a href="#">Troubleshooting</a></li>
                     </ul>
                 </li>
-                @if (isset($user_login))
+                @if (Auth::check())
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('admin_asset/img/user.png')}}" class="img-circle" alt="Avatar"> <span>{{$user_login->name}}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('admin_asset/img/user.png')}}" class="img-circle" alt="Avatar"> <span>{{Auth::user()->name}}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-                        <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-                        <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-                        <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                        <li><a href="{{route('usergetEdit', Auth::user()->id)}}"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
+                        <li><a href="{{route('getLogout')}}"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                     </ul>
                 </li>
                 @endif

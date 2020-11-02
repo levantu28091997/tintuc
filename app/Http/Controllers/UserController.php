@@ -92,4 +92,10 @@ class UserController extends Controller
             return redirect()->route('postLogin')->with('Login Fail');
         }
     }
+    public function getLogout(){
+        if(Auth::user()){
+            Auth::logout();
+            return redirect()->route('getLogin');
+        }
+    }
 }
