@@ -37,7 +37,11 @@ $('.js-slide').slick({
   arrows: false,
   slidesToScroll: 1,
   autoplay: true,
-  speed: 900
+  speed: 1200,
+  infinite: true,
+  cssEase: 'ease-in-out',
+  touchThreshold: 1000,
+  fade: true
 });
 
 function scrollMenu(){

@@ -8,19 +8,23 @@
           <ul class="menu-header__list">
             @foreach ($theloai as $tl)
               @if (count($tl->loaitin) > 0)
+              <li class="menu-header__item">
+                <a href="" class="menu-header__link">{{$tl->name}}</a>
+                <ul class="sub_menu menu-header__list">
+                  @foreach ($tl->loaitin as $item)
+                    <li class="menu-header__item"><a href="" class="menu-header__link">{{$item->name}}</a></li>
+                  @endforeach
+                </ul>
+              </li>
+              @else
               <li class="menu-header__item"><a href="" class="menu-header__link">{{$tl->name}}</a></li>
-              <ul class="menu-header__list">
-                @foreach ($tl->loaitin as $item)
-                  <li class="menu-header__item"><a href="" class="menu-header__link">{{$item->name}}</a></li>
-                @endforeach
-              </ul>
               @endif
             @endforeach
-            
+{{--             
             <li class="menu-header__item"><a href="" class="menu-header__link">work</a></li>
             <li class="menu-header__item"><a href="" class="menu-header__link">services</a></li>
             <li class="menu-header__item"><a href="" class="menu-header__link">about us</a></li>
-            <li class="menu-header__item"><a href="" class="menu-header__link">contact us</a></li>
+            <li class="menu-header__item"><a href="" class="menu-header__link">contact us</a></li> --}}
           </ul>
           <div class="icon-menu-mobie js-menu-mobie">
             <i class="pe-7s-menu"></i>

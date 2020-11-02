@@ -2,68 +2,36 @@
 @section('content')
     <!-- Slide -->
     <div class="js-slide">
-        <!-- item -->
-        <div class="slide">
-          <div class="js-slide__list">
-            <div class="slide-item">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xl-6 col-md-6">
-                    <div class="slide-content__none"></div>
-                  </div>
-                  <div class="col-xl-6 col-md-6">
-                    <div class="slide-content">
-                      <h2 class="slide-content__title">We Design and Develop</h2>
-                      <p class="slide-content__des">
-                          We are a new design studio based in USA. We have over 
-                          20 years of combined experience, and know a thing or two 
-                          about designing websites and mobile apps.
-                      </p>
-                      <a href="#" class="slide-content__backlink">contact us</a>
+        @foreach ($slide as $item)
+          <!-- item -->
+          <div class="slide">
+            <div class="js-slide__list">
+              <div class="slide-item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xl-6 col-md-6">
+                      <div class="slide-content__none"></div>
                     </div>
-                  </div>
-                  <div class="slide-image">
-                    <div class="slide-image-inner fix_h">
-                      <img src="images/slide/slide-1.jpg" alt="Slide" class="img-width100">
+                    <div class="col-xl-6 col-md-6">
+                      <div class="slide-content">
+                        <h2 class="slide-content__title">{{$item->name}}</h2>
+                        <p class="slide-content__des">
+                            {{$item->content}}
+                        </p>
+                        <a href="{{$item->link}}" class="slide-content__backlink">contact us</a>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- item -->
-        <div class="slide">
-          <div class="js-slide__list">
-            <div class="slide-item">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xl-6 col-md-6">
-                    <div class="slide-content__none"></div>
-                  </div>
-                  <div class="col-xl-6 col-md-6">
-                    <div class="slide-content">
-                      <h2 class="slide-content__title">We Design and Develop</h2>
-                      <p class="slide-content__des">
-                          We are a new design studio based in USA. We have over 
-                          20 years of combined experience, and know a thing or two 
-                          about designing websites and mobile apps.
-                      </p>
-                      <a href="#" class="slide-content__backlink">contact us</a>
-                    </div>
-                  </div>
-                  <div class="slide-image">
-                    <div class="slide-image-inner fix_h">
-                      <img src="images/slide/slide-1.jpg" alt="Slide" class="img-width100">
+                    <div class="slide-image">
+                      <div class="slide-image-inner fix_h">
+                        <img src="upload/slide/{{$item->image}}" alt="Slide" class="img-width100">
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-
+        @endforeach
       </div>
 
       <!-- About -->

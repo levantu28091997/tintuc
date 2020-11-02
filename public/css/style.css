@@ -132,6 +132,7 @@ a {
       padding-left: 20px;
       list-style: none; }
       .header-wrapper .header-inner .menu-header__list .menu-header__item {
+        position: relative;
         display: inline-block;
         padding: 0 15px; }
         .header-wrapper .header-inner .menu-header__list .menu-header__item .menu-header__link {
@@ -204,6 +205,33 @@ a {
   right: 0;
   top: 0;
   z-index: 1025; }
+
+ /** Sub-menu **/
+ .header-wrapper .header-inner .sub_menu{
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  background: #fff;
+  padding: 10px 0;
+  width: 200px;
+  border-radius: 3px;
+  border: 1px solid #e4e4e4;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(0, 20px);
+  z-index: 9999;
+  transition: all 0.3s ease 0s;
+ }
+ .header-wrapper .header-inner .sub_menu.menu-header__list .menu-header__item{ 
+   display: block;
+   padding: 5px 15px;
+  }
+ .header-wrapper .header-inner li:hover .sub_menu{
+  transform: translate(0, 0);
+  opacity: 1;
+  visibility: visible;
+  text-align: left;
+ }
 
 /** Main content **/
 /** Slide **/
