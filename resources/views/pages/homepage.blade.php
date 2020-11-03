@@ -203,102 +203,20 @@
         <div class="work-wrapper">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-3 p-0">
-                <div class="work-item">
-                  <a href="">
-                    <div class="work-item__box">
-                      <img src="images/portfolio/portfolio-1.jpg" alt="portfolio">
-                      <div class="work-item__overlay">
-                        <i class="pe-7s-look work-item__icon"></i>
+              @foreach ($tintuc as $item)
+                <div class="col-md-3 p-0">
+                  <div class="work-item">
+                    <a href="">
+                      <div class="work-item__box">
+                        <img src="upload/tintuc/{{$item->image}}" alt="{{$item->name}}">
+                        <div class="work-item__overlay">
+                          <i class="pe-7s-look work-item__icon"></i>
+                        </div>
                       </div>
-                    </div>
-                  </a>
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-3 p-0">
-                <div class="work-item">
-                  <a href="">
-                    <div class="work-item__box">
-                      <img src="images/portfolio/portfolio-2.jpg" alt="portfolio">
-                      <div class="work-item__overlay">
-                        <i class="pe-7s-look work-item__icon"></i>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3 p-0">
-                <div class="work-item">
-                  <a href="">
-                    <div class="work-item__box">
-                      <img src="images/portfolio/portfolio-4.jpg" alt="portfolio">
-                      <div class="work-item__overlay">
-                        <i class="pe-7s-look work-item__icon"></i>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3 p-0">
-                <div class="work-item">
-                  <a href="">
-                    <div class="work-item__box">
-                      <img src="images/portfolio/portfolio-3.jpg" alt="portfolio">
-                      <div class="work-item__overlay">
-                        <i class="pe-7s-look work-item__icon"></i>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3 p-0">
-                <div class="work-item">
-                  <a href="">
-                    <div class="work-item__box">
-                      <img src="images/portfolio/portfolio-5.jpg" alt="portfolio">
-                      <div class="work-item__overlay">
-                        <i class="pe-7s-look work-item__icon"></i>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3 p-0">
-                <div class="work-item">
-                  <a href="">
-                    <div class="work-item__box">
-                      <img src="images/portfolio/portfolio-6.jpg" alt="portfolio">
-                      <div class="work-item__overlay">
-                        <i class="pe-7s-look work-item__icon"></i>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3 p-0">
-                <div class="work-item">
-                  <a href="">
-                    <div class="work-item__box">
-                      <img src="images/portfolio/portfolio-7.jpg" alt="portfolio">
-                      <div class="work-item__overlay">
-                        <i class="pe-7s-look work-item__icon"></i>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3 p-0">
-                <div class="work-item">
-                  <a href="">
-                    <div class="work-item__box">
-                      <img src="images/portfolio/portfolio-8.jpg" alt="portfolio">
-                      <div class="work-item__overlay">
-                        <i class="pe-7s-look work-item__icon"></i>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
+              @endforeach
             </div>
             <div class="row">
               <a href="" class="work-loadmore">load more work</a>

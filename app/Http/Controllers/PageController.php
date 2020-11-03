@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TheLoai;
 use App\Models\Slide;
+use App\Models\TinTuc;
 
 class PageController extends Controller
 {
@@ -16,6 +17,7 @@ class PageController extends Controller
         // dd('Hello');
     }
     public function hompage(){
-        return view('pages.homepage');
+        $tintuc = TinTuc::take(8)->get();
+        return view('pages.homepage',['tintuc'=>$tintuc]);
     }
 }

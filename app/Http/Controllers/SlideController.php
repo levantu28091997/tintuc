@@ -105,6 +105,7 @@ class SlideController extends Controller
     }
     public function getDel($id){
         $slide = Slide::find($id);
+        $slide->delete();
         return redirect()->route('slideList')->with('notifi', 'Delete Slide Successfull');
     }
 }
