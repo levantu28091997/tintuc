@@ -90,7 +90,6 @@
                 var id_theloai = $(this).val();
                 var url = "{{url('/admin/ajax/loaitin/')}}";
                 $.get(url+'/'+id_theloai,function($data){
-                    // alert($data);
                     $('#id_loaitin').html($data);
                 });
             });

@@ -206,7 +206,7 @@
               @foreach ($tintuc as $item)
                 <div class="col-md-3 p-0">
                   <div class="work-item">
-                    <a href="">
+                    <a href="tintuc/{{$item->id}}/{{$item->title_unsigned}}.html">
                       <div class="work-item__box">
                         <img src="upload/tintuc/{{$item->image}}" alt="{{$item->name}}">
                         <div class="work-item__overlay">

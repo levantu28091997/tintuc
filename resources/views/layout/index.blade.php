@@ -39,11 +39,12 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="vendors/slick/slick.min.js"></script>
     <script src="vendors/jquery.waypoints.min.js"></script>
     <script src="vendors/jquery.counterup.min.js"></script>
     <script src="js/main.js"></script>
+    @yield('script')
   </body>
 </html>

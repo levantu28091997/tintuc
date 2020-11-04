@@ -26,17 +26,9 @@ use App\Http\Controllers\PageController;
 //========================= PUBLIC ======================
 //=======================================================
 Route::get('/', [PageController::class,'hompage']);
-
-Route::get('/thu', function () {
-    $theloai = TheLoai::find(3);
-    foreach ($theloai->tintuc as $loaitin) {
-        echo $loaitin . '<br>';
-    }
-});
-
-Route::get('/admin/index', function () {
-    return view('admin/index');
-});
+Route::get('tintuc/{id}/{title_unsigned}.html', [PageController::class,'newDetail']);
+Route::post('sign-in', [PageController::class, 'SignIn']);
+Route::get('loginAjax', [PageController::class, 'loginAjax'])->name('loginAjax');
 
 
 

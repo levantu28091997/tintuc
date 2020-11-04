@@ -67,6 +67,27 @@ function scrollMenu(){
 }
 scrollMenu();
 
+// redirect page
+
+$(function() {
+  $('.create-acount').click(function() {
+      $(this).toggleClass('active');
+      $('.back-login-form').addClass("active");
+      $('.back-login').addClass("active");
+      $('.create-acount-form').removeClass('active');
+      event.preventDefault()
+  });
+});
+$(function() {
+  $('.back-login').click(function() {
+      $(this).toggleClass('active');
+      $('.create-acount-form').addClass("active");
+      $('.create-acount').addClass("active");
+      $('.back-login-form').removeClass('active');
+      event.preventDefault()
+  });
+});
+
 // Scrool To Top
 $(window).scroll(function(){ 
   if ($(this).scrollTop() > 200) { //thực hiện lệnh điều kiện Khi lăn chuột xuống dưới hơn 200px

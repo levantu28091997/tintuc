@@ -132,8 +132,8 @@ a {
       padding-left: 20px;
       list-style: none; }
       .header-wrapper .header-inner .menu-header__list .menu-header__item {
-        position: relative;
         display: inline-block;
+        position: relative;
         padding: 0 15px; }
         .header-wrapper .header-inner .menu-header__list .menu-header__item .menu-header__link {
           text-transform: uppercase;
@@ -206,7 +206,7 @@ a {
   top: 0;
   z-index: 1025; }
 
- /** Sub-menu **/
+  /** Sub-menu **/
  .header-wrapper .header-inner .sub_menu{
   position: absolute;
   top: 100%;
@@ -876,6 +876,351 @@ a {
   #scroll-to-top:hover {
     background: #506a85;
     transition: .5s; }
+
+
+/** 6.2.3	    Blog & New Post **/
+.blogn-post-meta {
+  font-size: 18px; }
+  .blogn-post-meta .blogn-post-author, .blogn-post-meta .blogn-post-date, .blogn-post-meta .blogn-post-comment {
+    display: inline-block; }
+  .blogn-post-meta .blogn-post-date, .blogn-post-meta .blogn-post-comment {
+    height: 45px;
+    line-height: 45px; }
+  .blogn-post-meta .blogn-post-author .info-author-blogn-post {
+    padding: 0; }
+  .blogn-post-meta .blogn-post-meta-child {
+    border-right: solid 1px #dddddd;
+    height: 40px;
+    padding: 0 30px; }
+    .blogn-post-meta .blogn-post-meta-child:first-child {
+      padding-left: 0; }
+    .blogn-post-meta .blogn-post-meta-child:last-child {
+      border-right: none;
+      padding-right: 0; }
+
+.blogn-post-title {
+  font-size: 48px;
+  font-weight: 100;
+  margin: 0; }
+
+.blogn-post-inner-right .blogn-post-content .blogn-post-meta-pd {
+  padding: 20px 0 30px 0; }
+.blogn-post-inner-right .blogn-post-content .blogn-post-thumb {
+  padding-bottom: 40px; }
+  .blogn-post-inner-right .blogn-post-content .blogn-post-thumb img {
+    width: 100%;
+    height: auto; }
+.blogn-post-inner-right .blog-info {
+  padding-bottom: 40px; }
+  .blogn-post-inner-right .blog-info img {
+    width: 100%;
+    height: auto; }
+.blogn-post-inner-right .blogn-post-tag {
+  background: #f4f4f4; }
+  .blogn-post-inner-right .blogn-post-tag .tag .tag-title, .blogn-post-inner-right .blogn-post-tag .tag .list-tag {
+    display: inline-block;
+    margin: 0; }
+  .blogn-post-inner-right .blogn-post-tag .tag .tag-title {
+    background: #748a53;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 35px; }
+  .blogn-post-inner-right .blogn-post-tag .tag .list-tag {
+    list-style: none;
+    padding-left: 15px; }
+    .blogn-post-inner-right .blogn-post-tag .tag .list-tag .tag-item {
+      display: inline-block; }
+      .blogn-post-inner-right .blogn-post-tag .tag .list-tag .tag-item .tag-item-link {
+        color: #241305;
+        font-size: 18px; }
+      .blogn-post-inner-right .blogn-post-tag .tag .list-tag .tag-item::after {
+        content: ','; }
+      .blogn-post-inner-right .blogn-post-tag .tag .list-tag .tag-item:last-child::after {
+        content: ''; }
+  .blogn-post-inner-right .blogn-post-tag .follow {
+    float: right;
+    padding-right: 30px;
+    line-height: 50px; }
+    .blogn-post-inner-right .blogn-post-tag .follow .social-inner-st2 .social-text {
+      font-size: 16px; }
+    .blogn-post-inner-right .blogn-post-tag .follow .social-inner-st2 .socials-st2 {
+      display: inline-block; }
+      .blogn-post-inner-right .blogn-post-tag .follow .social-inner-st2 .socials-st2 .icon-social-st2 {
+        text-decoration: none;
+        padding-left: 20px;
+        color: #241305;
+        font-size: 18px; }
+.blogn-post-inner-right .blogn-post-comments {
+  padding: 40px 0; }
+  .blogn-post-inner-right .blogn-post-comments .blogn-post-comment-list {
+    list-style: none;
+    margin: 0;
+    padding-top: 15px; }
+    .blogn-post-inner-right .blogn-post-comments .blogn-post-comment-list .blogn-post-comment-item {
+      padding-bottom: 25px; }
+      .blogn-post-inner-right .blogn-post-comments .blogn-post-comment-list .blogn-post-comment-item:last-child {
+        padding-bottom: 0; }
+      .blogn-post-inner-right .blogn-post-comments .blogn-post-comment-list .blogn-post-comment-item .comment .content-comment {
+        font-size: 18px;
+        margin: 0;
+        padding: 15px 0 10px 0; }
+      .blogn-post-inner-right .blogn-post-comments .blogn-post-comment-list .blogn-post-comment-item .comment .reply-comment a {
+        font-size: 18px;
+        color: #748a53; }
+.blogn-post-inner-right .blogn-post-leave-comment-form {
+  padding-top: 30px; }
+  .blogn-post-inner-right .blogn-post-leave-comment-form .blogn-post-leave-comment .touch-with-us-form .blogn-post-textarea {
+    height: 150px; }
+    .touch-with-us-form {
+      width: 100%; }
+      .touch-with-us-form .form-touch-with-us input::placeholder {
+        color: #dddddd;
+        font-size: 18px; }
+      .touch-with-us-form .form-touch-with-us .form-row > [class*=col-] {
+        padding-right: 15px;
+        padding-left: 15px; }
+        .touch-with-us-form .form-touch-with-us .form-row > [class*=col-]:first-child {
+          padding-left: 5px; }
+        .touch-with-us-form .form-touch-with-us .form-row > [class*=col-]:last-child {
+          padding-right: 5px; }
+      .touch-with-us-form .form-touch-with-us .form-control {
+        border-radius: 0;
+        border: none;
+        background: #f4f4f4;
+        font-size: 18px;
+        color: #dddddd;
+        padding: 11px 20px; }
+        .touch-with-us-form .form-touch-with-us .form-control:focus {
+          box-shadow: none; }
+      .touch-with-us-form .form-touch-with-us .form-group-custom {
+        margin-bottom: 0; }
+      .touch-with-us-form .form-touch-with-us .custom-textarea {
+        margin: 30px 0 50px;
+        min-width: 100%;
+        height: 200px;
+        max-height: 100%; }
+        .st2-btn-submit:hover::after {
+          width: 100% !important; }
+        
+        .st2-btn-submit {
+          color: #fff;
+          font-size: 18px;
+          background: #241305;
+          cursor: pointer;
+          border: none;
+          padding: 0 35px;
+          transition: all 0.25s ease;
+          overflow: hidden;
+          position: relative;
+          height: 50px;
+          line-height: 50px;
+          vertical-align: top; }
+          .st2-btn-submit:focus {
+            outline: none; }
+          .st2-btn-submit::after {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            background-color: #748a53;
+            transform-origin: left;
+            transition: width 0.5s ease;
+            z-index: 1; }
+          .st2-btn-submit:hover {
+            color: #fff !important; }
+            .st2-btn-submit:hover .st2-submit-text, .st2-btn-submit:hover .st2-submit-icon {
+              position: relative;
+              z-index: 2; }
+          .st2-btn-submit .st2-submit-icon {
+            vertical-align: middle;
+            padding-left: 7px; }
+            .info-author {
+              padding: 15px 0 25px 0; }
+              .info-author .author-avatar {
+                width: 45px;
+                height: 45px;
+                overflow: hidden;
+                border: solid 3px #dddddd;
+                border-radius: 50%; }
+                .info-author .author-avatar img {
+                  width: 100%;
+                  height: 100%; }
+              .info-author .author-name {
+                font-size: 18px;
+                font-weight: 100;
+                margin: 0;
+                padding-left: 10px; }
+                .detail-content, .blogn-post-inner-right{ padding: 80px 0;}
+
+
+
+
+
+/* Modal user */
+.modal .modal-dialog .modal-content .modal-header {
+  border-bottom: none; }
+.modal .modal-dialog .modal-content .modal-wrapper {
+  max-width: 100%;
+  padding: 90px 15px 90px 15px;
+  margin: auto; }
+  .modal .modal-dialog .modal-content .modal-wrapper .customer-form {
+    margin-bottom: 0;
+    width: 400px;
+    max-width: 100%; }
+    .modal .modal-dialog .modal-content .modal-wrapper .customer-form .create-acount-form, .modal .modal-dialog .modal-content .modal-wrapper .customer-form .back-login-form {
+      display: none; }
+    .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-icon {
+      font-size: 35px;
+      color: #000;
+      margin-bottom: 34px;
+      text-align: center; }
+      .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-icon .des-re {
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 500;
+        line-height: 8px;
+        letter-spacing: 3px;
+        margin: 25px 0 0; }
+    .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .des-login {
+      margin: 0 0px 26px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 28px;
+      color: #868686; }
+    .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .des-re {
+      margin: 0 0px 26px;
+      font-size: 14px;
+      line-height: 28px;
+      color: #868686; }
+    .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-form .login .form-rows {
+      float: left;
+      overflow: hidden;
+      width: 100%;
+      margin-bottom: 28px; }
+      .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-form .login .form-rows input {
+        padding: 0 22px;
+        width: 100%;
+        border: 1px solid #dddddd;
+        border-radius: 0;
+        font-size: 14px;
+        line-height: 54px;
+        height: 56px;
+        color: #868686; }
+      .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-form .login .form-rows .remember-me {
+        float: left;
+        color: #a4a4a4;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: normal;
+        margin-bottom: 22px;
+        display: inline-block;
+        max-width: 100%; }
+        .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-form .login .form-rows .remember-me input[type="checkbox"] {
+          display: none; }
+        .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-form .login .form-rows .remember-me span::before {
+          content: "";
+          display: inline-block;
+          width: 12px;
+          height: 12px;
+          border: 1px solid #e2e2e2;
+          background: #f2f2f2;
+          border-radius: 50%;
+          margin-right: 11px;
+          margin-bottom: -1px;
+          transition: all 0.3s; }
+        .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-form .login .form-rows .remember-me:hover {
+          color: #000; }
+          .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-form .login .form-rows .remember-me:hover span::before {
+            background: #000;
+            border: 1px solid #000; }
+      .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-form .login .form-rows .lost-passw {
+        position: relative;
+        font-size: 14px;
+        line-height: 24px;
+        color: #a9a9a9;
+        float: right;
+        margin-bottom: 22px;
+        text-decoration: none;
+        border-bottom: solid 1px #a9a9a9; }
+        .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-form .login .form-rows .lost-passw:hover {
+          color: #000;
+          border-bottom: solid 1px #000; }
+      .modal .modal-dialog .modal-content .modal-wrapper .customer-form .tab-content .login-form .login .form-rows input[type="submit"] {
+        -webkit-appearance: button;
+        display: inline-block;
+        height: 56px;
+        line-height: 56px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 0 15px;
+        background: #000000;
+        border: none;
+        border-radius: 0;
+        vertical-align: top;
+        width: 100%;
+        letter-spacing: 2px; }
+    .modal .modal-dialog .modal-content .modal-wrapper .customer-form .spec {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #000;
+      text-align: center;
+      overflow: hidden; }
+      .modal .modal-dialog .modal-content .modal-wrapper .customer-form .spec span {
+        position: relative;
+        padding: 0 10px; }
+        .modal .modal-dialog .modal-content .modal-wrapper .customer-form .spec span::before {
+          content: "";
+          border-top: 1px solid #e4e4e4;
+          position: absolute;
+          top: 5px;
+          right: 100%;
+          width: 9999em; }
+        .modal .modal-dialog .modal-content .modal-wrapper .customer-form .spec span::after {
+          content: "";
+          border-top: 1px solid #e4e4e4;
+          position: absolute;
+          top: 5px;
+          left: 100%;
+          width: 9999em; }
+    .modal .modal-dialog .modal-content .modal-wrapper .customer-form .redirect {
+      list-style: none;
+      padding-bottom: 50px;
+      position: relative; }
+      .modal .modal-dialog .modal-content .modal-wrapper .customer-form .redirect li {
+        float: none;
+        margin-bottom: 0;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        opacity: 1;
+        bottom: 0;
+        left: 0;
+        right: 0; }
+        .modal .modal-dialog .modal-content .modal-wrapper .customer-form .redirect li .create-acount, .modal .modal-dialog .modal-content .modal-wrapper .customer-form .redirect li .back-login {
+          text-decoration: none;
+          display: none;
+          color: #000; }
+          .modal .modal-dialog .modal-content .modal-wrapper .customer-form .redirect li .create-acount:hover, .modal .modal-dialog .modal-content .modal-wrapper .customer-form .redirect li .back-login:hover {
+            opacity: 0.6; }
+          /* .modal .modal-dialog .modal-content .modal-wrapper .customer-form .redirect li .create-acount::after, .modal .modal-dialog .modal-content .modal-wrapper .customer-form .redirect li .back-login::after {
+            content: "\f178";
+            margin-left: 10px;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 600;
+            position: relative;
+            top: 1px; } */
+            .active {
+              display: inline-block !important;
+          }
+input[type="submit"], .block-account span{ cursor: pointer;}
 
 /** Reponsive **/
 @media (min-width: 1200px) {
