@@ -20,6 +20,26 @@
                         </p>
                         <div class="login-form">
                             <form action="" method="Post" class="login">
+                              @if (count($errors) > 0)
+                                  @foreach ($errors->all() as $error)
+                                      <div class="alert alert-danger alert-dismissible" role="alert">
+                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                          <i class="fa fa-times-circle"></i> {{$error}}
+                                      </div>
+                                  @endforeach         
+                              @endif
+                              @if (session('notifi'))
+                                  <div class="alert alert-success alert-dismissible" role="alert">
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                      <i class="fa fa-check-circle"></i> {{session('notifi')}}
+                                  </div>
+                              @endif
+                              @if (session('error'))
+                                  <div class="alert alert-danger alert-dismissible" role="alert">
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                      <i class="fa fa-check-circle"></i> {{session('error')}}
+                                  </div>
+                              @endif
                               @csrf
                                 <p class="form-rows">
                                     <input type="text" placeholder="Username" id="emailLogin">
@@ -97,9 +117,16 @@
             <li class="menu-header__item">
               <!-- block-acount -->
                 <div class="block-account">
+                  @if (Auth::check())
+                      Hello: {{Auth::user()->name}}
+                      <ul class="sub_menu menu-header__list">
+                        <li class="menu-header__item"><a href="{{route('logOut')}}" class="menu-header__link">Logout</a></li>
+                      </ul>
+                  @else
                   <span data-toggle="modal" data-target="#userModal">
                       <i class="pe-7s-user"></i>
                   </span>
+                  @endif
               </div>
             </li>
 {{--             
@@ -154,20 +181,21 @@
         $('#SignIn').click(function(event){
             event.preventDefault();
             let email = $('#emailLogin').val();
-            let pass  = $('#passLogin').val();
-            $.post('loginAjax',{email : email,pass: pass}, function($data){})
+            let password  = $('#passLogin').val();
             $.ajax({
-              url : 'loginAjax',
-              type: 'POST',
-              data : {
-                email : email,
-                pass: pass,
-              },
-              success:function(response){
-              console.log(response);
-            },
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                method: 'POST', // Type of response and matches what we said in the route
+                url: '{{ route('loginAjax') }}', // This is the url we gave in the route
+                data: {email, password}, // <-- this is your POST data
+                success: function(response){ // What to do if we succeed
+                  return response;
+                },
+                error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
+                    console.log(JSON.stringify(jqXHR));
+                    console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+                }
+            });
           });
         });
-      });
     </script>
   @endsection

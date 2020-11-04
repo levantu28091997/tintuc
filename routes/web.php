@@ -25,10 +25,11 @@ use App\Http\Controllers\PageController;
 //=======================================================
 //========================= PUBLIC ======================
 //=======================================================
-Route::get('/', [PageController::class,'hompage']);
+Route::get('/', [PageController::class,'hompage'])->name('homePage');
 Route::get('tintuc/{id}/{title_unsigned}.html', [PageController::class,'newDetail']);
 Route::post('sign-in', [PageController::class, 'SignIn']);
-Route::get('loginAjax', [PageController::class, 'loginAjax'])->name('loginAjax');
+Route::post('loginAjax', [PageController::class, 'loginAjax'])->name('loginAjax');
+Route::get('logOut', [PageController::class, 'logOut'])->name('logOut');
 
 
 
