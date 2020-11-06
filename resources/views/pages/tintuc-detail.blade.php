@@ -98,23 +98,14 @@
               </ul>
             </div>
             <!-- Leave A Comment -->
+            @if (Auth::user())
             <div class="blogn-post-leave-comment">
               <h2 class="blogn-post-title">Leave A Comment</h2>
               <div class="blogn-post-leave-comment-form">
                 <div class="touch-with-us-form">
-                  <form class="form-touch-with-us">
-                    <div class="form-row">
-                      <div class="form-group col-md-4 form-group-custom">
-                        <input type="text" class="form-control" id="name" placeholder="Name*">
-                      </div>
-                      <div class="form-group col-md-4 form-group-custom">
-                        <input type="email" class="form-control" id="email" placeholder="Email*">
-                      </div>
-                      <div class="form-group col-md-4 form-group-custom">
-                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                      </div>
-                    </div>
-                    <textarea class="form-control custom-textarea blogn-post-textarea">Your Message Here*</textarea>
+                  <form class="form-touch-with-us" method="POST" action="{{route('postComment',$tin->id)}}">
+                    @csrf
+                    <textarea class="form-control custom-textarea blogn-post-textarea" name="content">Your Message Here*</textarea>
                     <button type="submit" class="newsletter-form-submit st2-btn-submit">
                       <span class="newsletter-submit-text st2-submit-text">Submit</span>
                       <span class="newsletter-submit-icon st2-submit-icon">
@@ -125,6 +116,7 @@
                 </div>
               </div>
             </div>
+            @endif
           </div>
         </div>
       </div>

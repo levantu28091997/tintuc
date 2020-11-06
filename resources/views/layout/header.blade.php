@@ -19,7 +19,7 @@
                             Create an account to expedite future checkouts, track order history & receive emails, discounts, & special offers
                         </p>
                         <div class="login-form">
-                            <form action="" method="Post" class="login">
+                            <form action="" method="POST" class="login" id="loginForm">
                               @if (count($errors) > 0)
                                   @foreach ($errors->all() as $error)
                                       <div class="alert alert-danger alert-dismissible" role="alert">
@@ -40,12 +40,13 @@
                                       <i class="fa fa-check-circle"></i> {{session('error')}}
                                   </div>
                               @endif
+                              <div class="error_email"></div>
                               @csrf
                                 <p class="form-rows">
-                                    <input type="text" placeholder="Username" id="emailLogin">
+                                    <input type="email" placeholder="Enter email" id="emailLogin" name="email">
                                 </p>
                                 <p class="form-rows">
-                                    <input type="password" placeholder="Password" id="passLogin">
+                                    <input type="password" placeholder="Enter password" id="passLogin" name="password">
                                 </p>
                                 <p class="form-rows">
                                     <label for="" class="remember-me">
@@ -53,7 +54,7 @@
                                         <span>Remember me</span>
                                     </label>
                                     <a href="#" class="lost-passw">Lost your password?</a>
-                                    <input type="submit" name="login" value="Login" id="SignIn">
+                                    <input type="submit" name="login" value="Login" id="login_Form">
                                 </p>
                             </form>
                         </div>
@@ -118,10 +119,7 @@
               <!-- block-acount -->
                 <div class="block-account">
                   @if (Auth::check())
-                      Hello: {{Auth::user()->name}}
-                      <ul class="sub_menu menu-header__list">
-                        <li class="menu-header__item"><a href="{{route('logOut')}}" class="menu-header__link">Logout</a></li>
-                      </ul>
+                      Hello: {{Auth::user()->name}} (<a href="{{route('logOut')}}" class="">Logout</a>)
                   @else
                   <span data-toggle="modal" data-target="#userModal">
                       <i class="pe-7s-user"></i>
@@ -178,22 +176,48 @@
   @section('script')
     <script>
       $(document).ready(function(){
-        $('#SignIn').click(function(event){
+        $('#login_Form').click(function(event){
             event.preventDefault();
+            console.log($('#loginForm').serialize());
             let email = $('#emailLogin').val();
             let password  = $('#passLogin').val();
             $.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 method: 'POST', // Type of response and matches what we said in the route
                 url: '{{ route('loginAjax') }}', // This is the url we gave in the route
+                dataType: "json",
                 data: {email, password}, // <-- this is your POST data
-                success: function(response){ // What to do if we succeed
-                  return response;
+                success: function(data){ // What to do if we succeed
+                  console.log(data);
+                  if ($.isEmptyObject(data.error)) {
+                  // location.reload();
+                  } else {
+                    console.log('Anhtu 1')
+                  console.log(data.error);
+                  $(".error_email").empty().append(
+                      '<div class="alert alert-danger" id="' + data.error
+                      .user_email + '" role="alert">' + data.error.user_email +
+                      '</div>');
+                  $(".error_password").empty().append(
+                      '<div class="alert alert-danger" id="' + data.error
+                      .user_email + '" role="alert">' + data.error.user_password +
+                      '</div>');
+                  }
+                  if (data.status == 0) {
+                  $(".error_email").empty().append('<p>' + data.message + '</p>');
+                  // alert(data.message);
+                  console.log('Anhtu 2');
+                  console.log(data.status);
+                  }
+                  if (data == 1) {
+                    console.log('Anhtu 3')
+                  location.reload();
+                  }
                 },
-                error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
-                    console.log(JSON.stringify(jqXHR));
-                    console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-                }
+                // error: function(data) { // What to do if we fail
+                //     console.log(data);
+                //     // console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+                // }
             });
           });
         });

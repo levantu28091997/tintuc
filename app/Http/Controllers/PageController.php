@@ -8,6 +8,8 @@ use App\Models\Slide;
 use App\Models\TinTuc;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use App\Todo;
 
 class PageController extends Controller
 {
@@ -49,7 +51,23 @@ class PageController extends Controller
     //     }
     // }
     public function loginAjax(Request $request){
-        $this->validate($request,
+        // dd('Anhtu');
+        // $data = $this->validate($request,
+        //     [
+        //         'email' => 'required|min:2|max:100|email',
+        //         'password' => 'required|min:6|max:15',
+        //     ],
+        //     [
+        //         'email.required' => 'Email không được để trống',
+        //         'email.min' => 'Email có độ dài từ 2 đến 100 kí tự',
+        //         'email.max' => 'Email có độ dài từ 2 đến 100 kí tự',
+        //         'email.email' => 'Định dạng email không hợp lệ',
+        //         'password.required' => 'Password không được để trống',
+        //         'password.min' => 'Password có độ dài từ 6 đến 15 kí tự',
+        //         'password.max' => 'Password có độ dài từ 6 đến 15 kí tự',
+        //     ]
+        // );
+        $todo = Validator::make($request->all(),
             [
                 'email' => 'required|min:2|max:100|email',
                 'password' => 'required|min:6|max:15',
@@ -65,11 +83,37 @@ class PageController extends Controller
             ]
         );
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return true;
+            $data = $todo->errors()->all();
+            return Response::json(array(
+                'success' => true,
+                'data'   => $data
+            )); 
         }else{
-            return false;
+            return dd('Thông tin tài khoản không chính xác');
         }
     }
+    // public function loginUser(Request $request){
+    //     $this->validate($request,
+    //         [
+    //             'email' => 'required|min:2|max:100|email',
+    //             'password' => 'required|min:6|max:15',
+    //         ],
+    //         [
+    //             'email.required' => 'Email không được để trống',
+    //             'email.min' => 'Email có độ dài từ 2 đến 100 kí tự',
+    //             'email.max' => 'Email có độ dài từ 2 đến 100 kí tự',
+    //             'email.email' => 'Định dạng email không hợp lệ',
+    //             'password.required' => 'Password không được để trống',
+    //             'password.min' => 'Password có độ dài từ 6 đến 15 kí tự',
+    //             'password.max' => 'Password có độ dài từ 6 đến 15 kí tự',
+    //         ]
+    //     );
+    //     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
     public function logOut(){
         if(Auth::check()){
             Auth::logout();
