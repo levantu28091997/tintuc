@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Todo;
+use Illuminate\Http\JsonResponse;
 
 class PageController extends Controller
 {
@@ -81,15 +82,23 @@ class PageController extends Controller
                 'password.min' => 'Password có độ dài từ 6 đến 15 kí tự',
                 'password.max' => 'Password có độ dài từ 6 đến 15 kí tự',
             ]
-        );
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $data = $todo->errors()->all();
-            return Response::json(array(
-                'success' => true,
-                'data'   => $data
-            )); 
+        )->errors();
+        // $data = $todo;
+        // dd($data);
+        if(count($todo) > 0){
+            return response()->json(array(
+                'error' => $todo,
+            ));
         }else{
-            return dd('Thông tin tài khoản không chính xác');
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+                return response()->json(array(
+                    'success' => true,
+                )); 
+            }else{
+                return response()->json(array(
+                    'error' => 'Thông tin tài khoản không chính xác',
+                ));
+            }
         }
     }
     // public function loginUser(Request $request){

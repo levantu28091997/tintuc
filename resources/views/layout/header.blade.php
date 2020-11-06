@@ -41,6 +41,7 @@
                                   </div>
                               @endif
                               <div class="error_email"></div>
+                              <div class="error_password"></div>
                               @csrf
                                 <p class="form-rows">
                                     <input type="email" placeholder="Enter email" id="emailLogin" name="email">
@@ -192,24 +193,16 @@
                   if ($.isEmptyObject(data.error)) {
                   // location.reload();
                   } else {
-                    console.log('Anhtu 1')
-                  console.log(data.error);
                   $(".error_email").empty().append(
                       '<div class="alert alert-danger" id="' + data.error
-                      .user_email + '" role="alert">' + data.error.user_email +
+                      .email + '" role="alert">' + data.error.email +
                       '</div>');
                   $(".error_password").empty().append(
                       '<div class="alert alert-danger" id="' + data.error
-                      .user_email + '" role="alert">' + data.error.user_password +
+                      .password + '" role="alert">' + data.error.password +
                       '</div>');
                   }
-                  if (data.status == 0) {
-                  $(".error_email").empty().append('<p>' + data.message + '</p>');
-                  // alert(data.message);
-                  console.log('Anhtu 2');
-                  console.log(data.status);
-                  }
-                  if (data == 1) {
+                  if (data.success == true) {
                     console.log('Anhtu 3')
                   location.reload();
                   }
