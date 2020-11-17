@@ -30,7 +30,7 @@ Route::get('tintuc/{id}/{title_unsigned}.html', [PageController::class,'newDetai
 Route::post('comment/{id}', [CommentController::class, 'postComment'])->name('postComment');
 // Route::post('sign-in', [PageController::class, 'SignIn']);
 Route::post('loginAjax', [PageController::class, 'loginAjax'])->name('loginAjax');
-Route::post('loginUser', [PageController::class, 'loginUser'])->name('loginUser');
+Route::post('registerAjax', [PageController::class, 'registerAjax'])->name('registerAjax');
 Route::get('logOut', [PageController::class, 'logOut'])->name('logOut');
 
 

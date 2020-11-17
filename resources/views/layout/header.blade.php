@@ -66,18 +66,19 @@
                             <p class="des-re">Register</p>
                         </div>
                         <div class="login-form">
-                            <form action="" method="Post" class="login">
+                            <form action="" method="POST" class="login" id="registerForm">
+                              @csrf
                                 <p class="form-rows">
-                                    <input type="text" placeholder="Username">
+                                    <input type="text" placeholder="Username" id="emailRegister">
                                 </p>
                                 <p class="form-rows">
-                                    <input type="text" placeholder="Password">
+                                    <input type="password" placeholder="Password" id="passRegister">
                                 </p>
                                 <p class="des-re">
                                         Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.
                                     </p>
                                 <p class="form-rows">
-                                    <input type="submit" name="login" value="Register" id="SignOut">
+                                    <input type="submit" name="login" value="Register" id="register_Form">
                                 </p>
                             </form>
                         </div>
@@ -183,34 +184,59 @@
             let email = $('#emailLogin').val();
             let password  = $('#passLogin').val();
             $.ajax({
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                method: 'POST', // Type of response and matches what we said in the route
-                url: '{{ route('loginAjax') }}', // This is the url we gave in the route
-                dataType: "json",
-                data: {email, password}, // <-- this is your POST data
-                success: function(data){ // What to do if we succeed
-                  console.log(data);
-                  if ($.isEmptyObject(data.error)) {
-                  // location.reload();
-                  } else {
-                  $(".error_email").empty().append(
-                      '<div class="alert alert-danger" id="' + data.error
-                      .email + '" role="alert">' + data.error.email +
-                      '</div>');
-                  $(".error_password").empty().append(
-                      '<div class="alert alert-danger" id="' + data.error
-                      .password + '" role="alert">' + data.error.password +
-                      '</div>');
-                  }
-                  if (data.success == true) {
-                    console.log('Anhtu 3')
+              headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+              method: 'POST', // Type of response and matches what we said in the route
+              url: '{{ route('loginAjax') }}', // This is the url we gave in the route
+              dataType: "json",
+              data: {email, password}, // <-- this is your POST data
+              success: function(data){ // What to do if we succeed
+                console.log(data);
+                if ($.isEmptyObject(data.error)) {
+                // location.reload();
+                } else {
+                $(".error_email").empty().append(
+                    '<div class="alert alert-danger" id="' + data.error
+                    .email + '" role="alert">' + data.error.email +
+                    '</div>');
+                $(".error_password").empty().append(
+                    '<div class="alert alert-danger" id="' + data.error
+                    .password + '" role="alert">' + data.error.password +
+                    '</div>');
+                }
+                if (data.success == true) {
                   location.reload();
-                  }
-                },
-                // error: function(data) { // What to do if we fail
-                //     console.log(data);
-                //     // console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-                // }
+                }
+              },
+            });
+          });
+
+          $('#registerForm').click(function(event){
+            event.preventDefault();
+            let email = $('#emailRegister').val();
+            let password = $('#passRegister').val();
+            $.ajax({
+              headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+              method : 'POST',
+              url : '{{route('registerAjax')}}',
+              dataType : 'json',
+              data : {email, password},
+              success: function(data){
+                if($.isEmptyObject(data.error)){
+
+                }else{
+                  $(".error_email").empty().append(
+                    '<div class="alert alert-danger" id="' + data.error
+                    .email + '" role="alert">' + data.error.email +
+                    '</div>');
+                  $(".error_password").empty().append(
+                    '<div class="alert alert-danger" id="' + data.error
+                    .password + '" role="alert">' + data.error.password +
+                    '</div>');
+                }
+                if (data.success == true) {
+                  location.reload();
+                }
+              }
             });
           });
         });

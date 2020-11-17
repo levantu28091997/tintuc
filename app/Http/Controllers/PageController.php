@@ -29,28 +29,6 @@ class PageController extends Controller
         $tin = TinTuc::find($id);
         return view('pages.tintuc-detail', ['tin'=>$tin]);
     }
-    // public function SignIn(Request $request){
-    //     $this->validate($request,
-    //         [
-    //             'email' => 'required|min:2|max:100|email',
-    //             'password' => 'required|min:6|max:15',
-    //         ],
-    //         [
-    //             'email.required' => 'Email không được để trống',
-    //             'email.min' => 'Email có độ dài từ 2 đến 100 kí tự',
-    //             'email.max' => 'Email có độ dài từ 2 đến 100 kí tự',
-    //             'email.email' => 'Định dạng email không hợp lệ',
-    //             'password.required' => 'Password không được để trống',
-    //             'password.min' => 'Password có độ dài từ 6 đến 15 kí tự',
-    //             'password.max' => 'Password có độ dài từ 6 đến 15 kí tự',
-    //         ]
-    //     );
-    //     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
     public function loginAjax(Request $request){
         // dd('Anhtu');
         // $data = $this->validate($request,
@@ -101,28 +79,44 @@ class PageController extends Controller
             }
         }
     }
-    // public function loginUser(Request $request){
-    //     $this->validate($request,
-    //         [
-    //             'email' => 'required|min:2|max:100|email',
-    //             'password' => 'required|min:6|max:15',
-    //         ],
-    //         [
-    //             'email.required' => 'Email không được để trống',
-    //             'email.min' => 'Email có độ dài từ 2 đến 100 kí tự',
-    //             'email.max' => 'Email có độ dài từ 2 đến 100 kí tự',
-    //             'email.email' => 'Định dạng email không hợp lệ',
-    //             'password.required' => 'Password không được để trống',
-    //             'password.min' => 'Password có độ dài từ 6 đến 15 kí tự',
-    //             'password.max' => 'Password có độ dài từ 6 đến 15 kí tự',
-    //         ]
-    //     );
-    //     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
+    public function registerAjax(Request $request){
+        $data = Validator::make($request->all(),
+            [
+                'email' => 'required|min:2|max:100|email',
+                'password' => 'required|min:6|max:15',
+            ],
+            [
+                'email.required' => 'Email không được để trống',
+                'email.min' => 'Email có độ dài từ 2 đến 100 kí tự',
+                'email.max' => 'Email có độ dài từ 2 đến 100 kí tự',
+                'email.email' => 'Định dạng email không hợp lệ',
+                'password.required' => 'Password không được để trống',
+                'password.min' => 'Password có độ dài từ 6 đến 15 kí tự',
+                'password.max' => 'Password có độ dài từ 6 đến 15 kí tự',
+            ]
+        )->errors();
+        if(count($data) > 0){
+            return response()->json(
+                ['error'=>$data]
+            );
+        }else{
+            $user = new User;
+            $user->name = 'User';
+            $user->email = $request->email;
+            $user->level = 2;
+            $user->password = bcrypt($request->password);
+            $user->save();
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+                return response()->json(array(
+                    'success' => true,
+                )); 
+            }else{
+                return response()->json(array(
+                    'error' => 'Thông tin tài khoản không chính xác',
+                ));
+            }
+        }
+    }
     public function logOut(){
         if(Auth::check()){
             Auth::logout();
